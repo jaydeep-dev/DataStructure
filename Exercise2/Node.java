@@ -1,3 +1,4 @@
+package Exercise2;
 // From repo: https://github.com/Sohaib-Mohiuddin/comp254-demo/blob/main/Week%202/Node.java
 
 public class Node {

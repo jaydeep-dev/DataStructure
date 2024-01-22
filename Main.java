@@ -1,6 +1,5 @@
 import java.util.Scanner;
-
-import javax.swing.text.Position;
+import Exercise2.LinkedList;
 
 public class Main {
     public static void main(String[] args) {

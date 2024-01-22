@@ -1,3 +1,4 @@
+package Exercise2;
 public class LinkedList {
     private Node head;
     private Node tail;
