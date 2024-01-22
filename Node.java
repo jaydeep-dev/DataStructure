@@ -37,7 +37,7 @@ public class Node {
 
     // toString method
     public String toString() {
-        return this.data + "";
+        return this.data + " -> " + this.getNext();
     }
 
     // equals method

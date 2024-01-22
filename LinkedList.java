@@ -119,9 +119,44 @@ public class LinkedList {
     public void display() {
         Node current = head;
         while (current != null) {
-            System.out.print(current.getData() + " ");
+            System.out.print(current.getData() + " -> ");
             current = current.getNext();
         }
         System.out.println();
+    }
+
+    // Extentions
+    public boolean isHeadNode(Node node) {
+        return node == head;
+    }
+
+    public boolean isTailNode(Node node) {
+        return node == tail;
+    }
+
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node node) {
+        head = node;
+    }
+
+    public Node getNodeAtPosition(int position) {
+        if (head == null) {
+            return null;
+        }
+
+        Node current = head;
+        for (int i = 1; i < position; i++) {
+            if (current == null) {
+                System.out.println("Position entered has exceeded the list limit!");
+                break;
+            }
+
+            current = current.getNext();
+        }
+
+        return current;
     }
 }
