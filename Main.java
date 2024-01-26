@@ -1,19 +1,37 @@
 import java.util.Scanner;
+
+import Exercise1.DoublyLinkedList;
 import Exercise2.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
+        //LinkedListExample();
+
+        DoublyLinkedListExample();
+    }
+
+    private static void DoublyLinkedListExample() {
+        DoublyLinkedList list = new DoublyLinkedList();
+
+        for (int i = 101; i <= 110; i++) {
+            list.insertAtEnd(i);
+        }
+
+        list.display();
+    }
+
+    private static void LinkedListExample() {
         // Creating the list
-        LinkedList mySinglyLinkedList = new LinkedList();
+        LinkedList list = new LinkedList();
 
         // Adding data to the list
         for (int i = 101; i <= 110; i++) {
-            mySinglyLinkedList.insertAtEnd(i);
+            list.insertAtEnd(i);
         }
 
         Scanner sc = new Scanner(System.in);
         System.out.println("You will be swapping 2 nodes in the list");
-        mySinglyLinkedList.display();
+        list.display();
         System.out.println();
         System.out.println("Please enter respective positions of the Node A & Node B to perform swap!");
         System.out.println();
@@ -28,20 +46,20 @@ public class Main {
         } else if (position1 <= 0 || position2 <= 0) {
             System.out.println("Please enter values grater than 0!");
         } else {
-            var nodeARef = mySinglyLinkedList.getNodeAtPosition(Math.min(position1, position2) - 1);
-            var nodeBRef = mySinglyLinkedList.getNodeAtPosition(Math.max(position1, position2) - 1);
+            var nodeARef = list.getNodeAtPosition(Math.min(position1, position2) - 1);
+            var nodeBRef = list.getNodeAtPosition(Math.max(position1, position2) - 1);
 
             System.out.println(nodeARef);
             System.out.println(nodeBRef);
 
-            var head = mySinglyLinkedList.getHead();
+            var head = list.getHead();
 
             if (nodeARef == head && (position1 == 1 || position2 == 1)) {
                 System.out.println("Head Node Changed!");
-                mySinglyLinkedList.setHead(nodeBRef.getNext());
-                var node = mySinglyLinkedList.getHead().getNext();
+                list.setHead(nodeBRef.getNext());
+                var node = list.getHead().getNext();
                 nodeBRef.setNext(nodeARef);
-                mySinglyLinkedList.getHead().setNext(nodeARef.getNext());
+                list.getHead().setNext(nodeARef.getNext());
                 nodeARef.setNext(node);
             } else {
                 var node = nodeBRef.getNext().getNext();
@@ -54,7 +72,7 @@ public class Main {
         }
 
         System.out.println();
-        mySinglyLinkedList.display();
+        list.display();
 
         sc.close();
     }
