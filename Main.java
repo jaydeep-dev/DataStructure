@@ -2,12 +2,46 @@ import java.util.Scanner;
 
 import Exercise1.DoublyLinkedList;
 import Exercise2.LinkedList;
+import Exercise3.CircularLinkedList;
 
 public class Main {
     public static void main(String[] args) {
         //LinkedListExample();
 
-        DoublyLinkedListExample();
+        //DoublyLinkedListExample();
+
+        CircularLinkedListExample();
+    }
+
+    private static void CircularLinkedListExample() {
+        var list = new CircularLinkedList();
+
+        for(int i = 301; i <= 310; i++) {
+            list.insertAtEnd(i);
+        }
+        
+        try {
+            var listClone = list.clone();
+
+            // Comment below line for accurate result
+            listClone.insertInBetween(0, 5);
+            
+            System.out.print("Original List => "); list.display();
+            System.out.print("Clonned  List => "); listClone.display();
+
+            if (list == listClone) {
+                System.out.println("Pointing to same objects! JOB IS NOT DONE");
+            }
+            else {
+                if (listClone.equals(list)) {
+                    System.out.println("Cloned Successfully");
+                } else {
+                    System.out.println("Clonned but Contents changed!!!");
+                }
+            }
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void DoublyLinkedListExample() {

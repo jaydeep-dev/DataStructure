@@ -1,11 +1,13 @@
-package Exercise2;
+package Exercise3;
 
-public class LinkedList {
+import Exercise2.Node;
+
+public class CircularLinkedList implements Cloneable {
     private Node head;
     private Node tail;
 
     // Constructor
-    public LinkedList() {
+    public CircularLinkedList() {
         this.head = null;
         this.tail = null;
     }
@@ -145,6 +147,14 @@ public class LinkedList {
         head = node;
     }
 
+    public Node getTail() {
+        return tail;
+    }
+
+    public void setTail(Node node) {
+        tail = node;
+    }
+
     public Node getNodeAtPosition(int position) {
         if (head == null) {
             return null;
@@ -161,5 +171,47 @@ public class LinkedList {
         }
 
         return current;
+    }
+
+    public CircularLinkedList clone() throws CloneNotSupportedException {
+        var other = (CircularLinkedList) super.clone();
+
+        // Clonning the head
+        var head = new Node(this.head.getData(), this.head.getNext());
+        other.setHead(head);
+
+        var current = head.getNext();
+        var tail = head;
+        while (current != null) {
+            // Clonning the rest of the list
+            var node = new Node(current.getData());
+            tail.setNext(node);
+            tail = node;
+            current = current.getNext();
+        }
+        other.setTail(tail);
+        return other;
+    }
+
+    @Override
+    public boolean equals(Object other)
+    {
+        boolean flag = true;
+        var current = head;
+        var current2 = ((CircularLinkedList)other).head;
+        while(flag && current != null && current2 != null) {
+            //System.out.println("Checking " + current.getData() + " == " + current2.getData());
+            flag = current.equals(current2);
+            current = current.getNext();
+            current2 = current2.getNext();
+        }
+
+        return flag;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Head = " + head + " Tail = " + tail;
     }
 }
