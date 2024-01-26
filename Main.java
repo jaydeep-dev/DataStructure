@@ -11,13 +11,23 @@ public class Main {
     }
 
     private static void DoublyLinkedListExample() {
-        DoublyLinkedList list = new DoublyLinkedList();
+        var listL = new DoublyLinkedList();
+        var listM = new DoublyLinkedList();
 
         for (int i = 101; i <= 110; i++) {
-            list.insertAtEnd(i);
+            listL.insertAtEnd(i);
         }
 
-        list.display();
+        for (int i = 201; i <= 210; i++) {
+            listM.insertAtEnd(i);
+        }
+
+        // Concating the list only one way (Intentionally)
+        listL.getTail().setNext(listM.getHead());
+
+        listL.display();
+        listM.display();
+
     }
 
     private static void LinkedListExample() {
