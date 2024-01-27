@@ -7,36 +7,49 @@ import Exercise3.CircularLinkedList;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Singly Linked List Example");
-        //LinkedListExample();
+        LinkedListExample();
+        seperator();
 
         System.out.println("\nDoubly Linked List Example\n");
-        //DoublyLinkedListExample();
+        DoublyLinkedListExample();
+        seperator();
 
         System.out.println("\nCircular Linked list Example\n");
         CircularLinkedListExample();
+        seperator();
+    }
+
+    private static void seperator() {
+        System.out.println();
+
+        for (int i = 0; i < 75; i++)
+            System.out.print("=");
+
+        System.out.println();
     }
 
     private static void CircularLinkedListExample() {
         var list = new CircularLinkedList();
 
-        for(int i = 301; i <= 310; i++) {
+        for (int i = 301; i <= 310; i++) {
             list.insertAtEnd(i);
         }
-        
-        System.out.print("Original List => "); list.display();
+
+        System.out.print("Original List => ");
+        list.display();
 
         try {
             var listClone = list.clone();
 
             // Comment below line for accurate result
             listClone.insertInBetween(0, 5);
-            
-            System.out.print("Clonned  List => "); listClone.display();
+
+            System.out.print("Clonned  List => ");
+            listClone.display();
 
             if (list == listClone) {
                 System.out.println("Pointing to same objects! JOB IS NOT DONE");
-            }
-            else {
+            } else {
                 if (listClone.equals(list)) {
                     System.out.println("Cloned Successfully");
                 } else {
@@ -60,15 +73,18 @@ public class Main {
             listM.insertAtEnd(i);
         }
 
-        System.out.print("List 1 => "); listL.display();
-        System.out.print("List 2 => "); listM.display();
+        System.out.print("List 1 => ");
+        listL.display();
+        System.out.print("List 2 => ");
+        listM.display();
 
         // Concating the list only one way (Intentionally)
         listL.getTail().setNext(listM.getHead());
 
-        System.out.print("Modified List 1 => "); listL.display();
-        System.out.print("Modified List 2 => "); listM.display();
+        System.out.println();
 
+        System.out.print("Modified List 1 => ");
+        listL.display();
     }
 
     private static void LinkedListExample() {
@@ -92,37 +108,51 @@ public class Main {
         System.out.print("Enter the position for swaping Node B: ");
         var position2 = sc.nextInt();
 
+        System.out.println();
+
         if (position1 == position2) {
             System.out.println("Both positions are same!");
         } else if (position1 <= 0 || position2 <= 0) {
             System.out.println("Please enter values grater than 0!");
         } else {
-            var nodeARef = list.getNodeAtPosition(Math.min(position1, position2) - 1);
-            var nodeBRef = list.getNodeAtPosition(Math.max(position1, position2) - 1);
+            position1 = Math.min(position1, position2);
+            position2 = Math.max(position1, position2);
 
-            list.display();
+            var nodeARef = list.getNodeAtPosition(position1 - 1);
+            var nodeBRef = list.getNodeAtPosition(position2 - 1);
 
-            var head = list.getHead();
+            if (nodeARef != null && nodeBRef != null) {
 
-            if (nodeARef == head && (position1 == 1 || position2 == 1)) {
-                System.out.println("Head Node Changed!");
-                list.setHead(nodeBRef.getNext());
-                var node = list.getHead().getNext();
-                nodeBRef.setNext(nodeARef);
-                list.getHead().setNext(nodeARef.getNext());
-                nodeARef.setNext(node);
-            } else {
-                var node = nodeBRef.getNext().getNext();
-                nodeBRef.getNext().setNext(nodeARef.getNext().getNext());
-                nodeARef.getNext().setNext(node);
-                node = nodeARef.getNext();
-                nodeARef.setNext(nodeBRef.getNext());
-                nodeBRef.setNext(node);
+                System.out.print("Original List => ");
+                list.display();
+
+                var head = list.getHead();
+
+                if (nodeARef == head && position1 == 1) {
+                    System.out.println("\nHead Node Changed!");
+                    list.setHead(nodeBRef.getNext());
+                    var node = list.getHead().getNext();
+                    nodeBRef.setNext(nodeARef);
+                    list.getHead().setNext(nodeARef.getNext());
+                    nodeARef.setNext(node);
+                } else if(position2 - position1 <= 1) {
+                    var node = nodeARef.getNext();
+                    nodeARef.setNext(nodeBRef.getNext());
+                    nodeBRef.setNext(nodeARef.getNext().getNext());
+                    nodeARef.getNext().setNext(node);
+                } else {
+                    var node = nodeBRef.getNext().getNext();
+                    nodeBRef.getNext().setNext(nodeARef.getNext().getNext());
+                    nodeARef.getNext().setNext(node);
+                    node = nodeARef.getNext();
+                    nodeARef.setNext(nodeBRef.getNext());
+                    nodeBRef.setNext(node);
+                }
+
+                System.out.print("SWAPPED  List => ");
+                list.display();
             }
         }
-
-        System.out.println();
-        list.display();
 
         sc.close();
     }
