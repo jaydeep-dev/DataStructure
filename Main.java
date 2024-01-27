@@ -6,10 +6,13 @@ import Exercise3.CircularLinkedList;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Singly Linked List Example");
         //LinkedListExample();
 
+        System.out.println("\nDoubly Linked List Example\n");
         //DoublyLinkedListExample();
 
+        System.out.println("\nCircular Linked list Example\n");
         CircularLinkedListExample();
     }
 
@@ -20,13 +23,14 @@ public class Main {
             list.insertAtEnd(i);
         }
         
+        System.out.print("Original List => "); list.display();
+
         try {
             var listClone = list.clone();
 
             // Comment below line for accurate result
             listClone.insertInBetween(0, 5);
             
-            System.out.print("Original List => "); list.display();
             System.out.print("Clonned  List => "); listClone.display();
 
             if (list == listClone) {
@@ -56,11 +60,14 @@ public class Main {
             listM.insertAtEnd(i);
         }
 
+        System.out.print("List 1 => "); listL.display();
+        System.out.print("List 2 => "); listM.display();
+
         // Concating the list only one way (Intentionally)
         listL.getTail().setNext(listM.getHead());
 
-        listL.display();
-        listM.display();
+        System.out.print("Modified List 1 => "); listL.display();
+        System.out.print("Modified List 2 => "); listM.display();
 
     }
 
@@ -93,8 +100,7 @@ public class Main {
             var nodeARef = list.getNodeAtPosition(Math.min(position1, position2) - 1);
             var nodeBRef = list.getNodeAtPosition(Math.max(position1, position2) - 1);
 
-            System.out.println(nodeARef);
-            System.out.println(nodeBRef);
+            list.display();
 
             var head = list.getHead();
 
