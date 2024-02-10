@@ -6,13 +6,13 @@ import Exercise3.CircularLinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Singly Linked List Example");
-        LinkedListExample();
-        seperator();
+        // System.out.println("Singly Linked List Example");
+        // LinkedListExample();
+        // seperator();
 
-        System.out.println("\nDoubly Linked List Example\n");
-        DoublyLinkedListExample();
-        seperator();
+        // System.out.println("\nDoubly Linked List Example\n");
+        // DoublyLinkedListExample();
+        // seperator();
 
         System.out.println("\nCircular Linked list Example\n");
         CircularLinkedListExample();
@@ -80,6 +80,7 @@ public class Main {
 
         // Concating the list only one way (Intentionally)
         listL.getTail().setNext(listM.getHead());
+        //listM.getHead().setPrev(listL.getTail()); // otherwise this is how it's done
 
         System.out.println();
 

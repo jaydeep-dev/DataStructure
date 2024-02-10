@@ -90,7 +90,9 @@ public class CircularLinkedList implements Cloneable {
             // Only one node in the list
             tail = null;
         } else {
-            tail.setNext(tail.getNext().getNext());
+            var node = tail.getNext();
+            tail.setNext(tail.getNext());
+            //tail.setNext(tail.getNext().getNext());
         }
     }
 
