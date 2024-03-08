@@ -6,13 +6,13 @@ import Exercise3.CircularLinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        // System.out.println("Singly Linked List Example");
-        // LinkedListExample();
-        // seperator();
+        System.out.println("Singly Linked List Example");
+        LinkedListExample();
+        seperator();
 
-        // System.out.println("\nDoubly Linked List Example\n");
-        // DoublyLinkedListExample();
-        // seperator();
+        System.out.println("\nDoubly Linked List Example\n");
+        DoublyLinkedListExample();
+        seperator();
 
         System.out.println("\nCircular Linked list Example\n");
         CircularLinkedListExample();
