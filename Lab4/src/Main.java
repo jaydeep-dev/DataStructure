@@ -64,10 +64,11 @@ public class Main {
         System.out.println();
         System.out.println();
 
-
         for (String val : capitalLetters) {
             System.out.print(val + " -> ");
         }
+
+        System.out.println();
     }
 
     private static void Exercise1() {
@@ -79,19 +80,22 @@ public class Main {
         lists.Position<Integer> pos = null;
 
         for (int i = 1; i < 100; i++) {
+            // Assigning position at the middle of the list
             if (i == 50) {
                pos = list.addLast(i);
             }
             list.addLast(i);
         }
 
+        // The following line will throw IllegalArgumentException as the line will remove the element from the list thus making it an illegal operation.
         //list.remove(pos);
 
         int index = list.indexOf(pos);
-        System.out.println("Pos is " + pos.getElement() + " and its index is " + index);
+        System.out.println("Pos is " + pos.getElement() + " and it's index is " + index);
     }
 
     private static void exerciseTitleProvider(String titleString) {
+        System.out.println();
         System.out.println(titleString);
         System.out.println("=========================================");
         System.out.println();

@@ -20,7 +20,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lists;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -422,30 +421,5 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
     }
     sb.append(")");
     return sb.toString();
-  }
-
-  public int indexOf(Position<E> pos) throws IllegalArgumentException, NullPointerException {
-
-    if (pos == null) {
-      throw new NullPointerException("pos is null");
-    }
-    if (isEmpty()) {
-      throw new NullPointerException("The list is empty");
-    }
-
-    Node<E> first = (Node<E>)first();
-    Node<E> target = (Node<E>)pos;
-    
-    int count = 0;
-
-    while (first != target) {
-      if (count >= size()) {
-        throw new IllegalArgumentException("The element does not exists in the list.");
-      }
-      first = first.getNext();
-      count++;
-    }
-
-    return count;
   }
 }

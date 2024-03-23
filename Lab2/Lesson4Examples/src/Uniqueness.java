@@ -54,7 +54,7 @@ class Uniqueness {
   }
 
   public static void main(String[] args) {
-    final int SIZE = 500000;
+    final int SIZE = 50000;
     final int TRIALS = 10;
     int[] array = new int[SIZE];
 
