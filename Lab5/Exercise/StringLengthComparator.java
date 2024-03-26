@@ -1,3 +1,5 @@
+package Lab5.Exercise;
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -23,24 +25,19 @@
 
 import java.util.Comparator;
 
-/**
- * Comparator based on the compareTo method of a Comparable element type.
- *
- * @author Michael T. Goodrich
- * @author Roberto Tamassia
- * @author Michael H. Goldwasser
- */
-public class DefaultComparator<E> implements Comparator<E> {
+public class StringLengthComparator implements Comparator<String> {
 
-  /**
-   * Compares two elements.
-   *
-   * @return a negative integer if <tt>a</tt> is less than <tt>b</tt>,
-   * zero if <tt>a</tt> equals <tt>b</tt>, or a positive integer if
-   * <tt>a</tt> is greater than <tt>b</tt>
-   */
-  @SuppressWarnings({"unchecked"})
-  public int compare(E a, E b) throws ClassCastException {
-    return ((Comparable<E>) a).compareTo(b);
+  /** Compares two strings according to their lengths. */
+  public int compare(String a, String b) {
+    if (a.length() < b.length()) return -1;
+    else if (a.length() == b.length()) return 0;
+    else return 1;
   }
+
+  public static void main(String[] args) {
+    String data[] = {"Apple", "Banana", "Grape", "Grapefruit", "Plum", "Raspberry", "Strawberry"};
+    java.util.Arrays.sort(data, new StringLengthComparator());
+    System.out.println("data: " + java.util.Arrays.toString(data));
+  }
+
 }

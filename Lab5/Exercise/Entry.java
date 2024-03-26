@@ -1,3 +1,5 @@
+package Lab5.Exercise;
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -21,21 +23,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.util.Comparator;
+/**
+ * Interface for a key-value pair.
+ *
+ * @author Michael T. Goodrich
+ * @author Roberto Tamassia
+ * @author Michael H. Goldwasser
+ */
+public interface Entry<K,V> {
+  /**
+   * Returns the key stored in this entry.
+   * @return the entry's key
+   */
+  K getKey();
 
-public class StringLengthComparator implements Comparator<String> {
-
-  /** Compares two strings according to their lengths. */
-  public int compare(String a, String b) {
-    if (a.length() < b.length()) return -1;
-    else if (a.length() == b.length()) return 0;
-    else return 1;
-  }
-
-  public static void main(String[] args) {
-    String data[] = {"Apple", "Banana", "Grape", "Grapefruit", "Plum", "Raspberry", "Strawberry"};
-    java.util.Arrays.sort(data, new StringLengthComparator());
-    System.out.println("data: " + java.util.Arrays.toString(data));
-  }
-
+  /**
+   * Returns the value stored in this entry.
+   * @return the entry's value
+   */
+  V getValue();
 }

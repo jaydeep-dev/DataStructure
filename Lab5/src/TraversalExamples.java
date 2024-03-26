@@ -174,7 +174,7 @@ public class TraversalExamples {
 
     printPreorder(lbt);
 
-    // Ex 1
+    // Ex 1 : Give next element in preorder
     var target = bRight;
     var nextPos = nextPreorderElementFromPos(lbt, target);
     if (nextPos == null) {
@@ -183,11 +183,13 @@ public class TraversalExamples {
       System.out.println(target.getElement() + "'s next element is: " + nextPos.getElement());
     }
 
-    // EX 2
-    var height = findHeight(lbt, xRight);
-    System.out.println("Height from " + root.getElement() + " is " + height);
+    // EX 2 : Find height of given element
+    var elementToFindHeight = xRight;
+    var height = findHeight(lbt, elementToFindHeight);
+    System.out.println("Height from " + elementToFindHeight.getElement() + " is " + height);
 
-    // EX 3
+    // EX 3 : Optimize upheap algorithm in HeapPriorityQueue
     // Not Here (In different File)
+    // Lab5\Exercise\HeapPriorityQueue.java -> Copy: "upheap" -> Ctrl + F -> Ctrl + V
   }
 }

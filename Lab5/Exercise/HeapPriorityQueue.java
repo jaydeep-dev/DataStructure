@@ -1,3 +1,5 @@
+package Lab5.Exercise;
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -103,7 +105,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
   protected void upheap(int j) {
     while (j > 0) { // continue until reaching root (or break statement)
       int p = parent(j);
-      if (compare(heap.get(j), heap.get(p)) >= 0)
+      if (compare(heap.get(j), heap.get(p)) >= 0) // -1 means j is smaller // 0 means j & p are equal // 1 means j is bigger
         break; // heap property verified
       swap(j, p);
       j = p; // continue from the parent's location
