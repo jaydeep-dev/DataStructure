@@ -77,7 +77,9 @@ public class SortedTableMap<K,V> extends AbstractSortedMap<K,V> {
   public boolean containKey(K key)
   {
 	  //use findIndex method to check for the key in your map
-	  return true;
+    var index = findIndex(key);
+    var hasKey = index >= 0 && index < table.size();    
+    return hasKey;
   }
 
   /**

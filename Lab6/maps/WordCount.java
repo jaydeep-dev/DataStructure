@@ -29,6 +29,23 @@ import java.util.Scanner;
 /** A program that counts words in a document, printing the most frequent. */
 public class WordCount {
   public static void main(String[] args) {
+
+    Exercise1();
+    SortedTableMap<Integer, Integer> map = new SortedTableMap<>();
+    map.put(1, 11);
+    map.put(2, 22);
+    map.put(3, 33);
+    map.put(4, 44);
+
+    var hasKey = map.containKey(1);
+    System.out.println("Key 1 is " + (hasKey ? "":"Not ") + "Present");
+    hasKey = map.containKey(55);
+    System.out.println("Key 55 is " + (hasKey ? "":"Not ") + "Present");
+  }
+
+  private static void Exercise1() {
+    System.out.println("To Exit press Ctrl + Z and then Enter/Return!");
+
 	  System.out.print("Enter word: ");
     //boolean VERBOSE = (args.length > 0);
     Map<String,Integer> freq = new ChainHashMap<>();  // or any concrete map
@@ -55,6 +72,5 @@ public class WordCount {
       }
     System.out.print("The most frequent word is '" + maxWord);
     System.out.println("' with " + maxCount + " occurrences.");
-    
   }
 }
