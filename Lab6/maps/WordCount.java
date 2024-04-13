@@ -30,7 +30,7 @@ import java.util.Scanner;
 public class WordCount {
   public static void main(String[] args) {
 
-    Exercise1();
+    //Exercise1();
     SortedTableMap<Integer, Integer> map = new SortedTableMap<>();
     map.put(1, 11);
     map.put(2, 22);
